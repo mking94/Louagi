@@ -1,0 +1,315 @@
+.navbar-light .navbar-nav .nav-link {
+  color: #000;
+}
+#home{
+width:90%;
+height:350px;
+margin-top:15px;
+margin-left:5%;
+background-image: url("https://www.amideast.org/sites/default/files//styles/internal_banner/public/Sidi%20Bousaid2.jpg");
+background-repeat:no-repeat;
+background-size: 100% 100%;
+display:flex;
+justify-content: center;
+align-items: center;
+border-radius: 15px;
+}
+#home #search{
+width:90%;
+height:300px;
+margin-top:120px;
+margin-left:1.75%;
+background:white;
+opacity:0.85;
+border-radius: 15px;
+box-shadow: 3px 15px 8px -10px rgba(0, 0, 0, 0.3);
+border: solid 3px #fff;
+
+}
+#home #search h1{
+margin-top:1px;
+text-align: center;
+}
+#home #search form
+{
+width:75%;
+margin: 0 auto;
+display: grid;
+grid-auto-flow: column;
+grid-column-gap: 10px;
+justify-content: center;
+margin-top:6%;
+}
+
+#home #search form i
+{
+margin-left:80%;
+margin-top:25px;
+cursor:pointer;
+opacity:0.85;
+}
+
+#home #search form div input
+{
+margin-top:-1px;
+}
+
+select {
+  /* Reset Select */
+  appearance: none;
+  outline: 0;
+  border: 0;
+  box-shadow: none;
+  /* Personalize */
+  flex: 1;
+  padding: 0 1em;
+  color: #fff;
+  background-color: var(--darkgray);
+  background-image: none;
+  cursor: pointer;
+  font-size: 1rem;
+  
+}
+/* Remove IE arrow */
+select::-ms-expand {
+  display: none;
+}
+/* Custom Select wrapper */
+.select {
+  position: relative;
+  display: flex;
+  width: 20em;
+  height: 3em;
+  border-radius: .25em;
+  overflow: hidden;
+  width:215px;
+}
+/* Arrow */
+.select::after {
+  content: '\25BC';
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 1em;
+  background-color: #34495e;
+  transition: .25s all ease;
+  pointer-events: none;
+  color:black;
+}
+
+:root {
+  --background-gradient: linear-gradient(30deg, #f39c12 30%, #f1c40f);
+  --gray: #34495e;
+  --darkgray: #2c3e50;
+}
+#logo{
+width:25px;
+height:50px;
+}
+#about{
+width:100%;
+margin-top:45px;
+}
+
+#about h1 {
+color: #87CEEB;
+font-family: 'Rouge Script', cursive;
+font-size: 70px;
+font-weight: normal;
+line-height: 48px;
+margin: 0 0 50px;
+text-align: center;
+text-shadow: 1px 1px 2px #00BFFF;
+}
+
+#about p
+{
+font-family: 'Inder', sans-serif;
+line-height: 28px;
+margin-bottom: 15px;
+color: #666;
+margin-left:10%;
+text-align: justify;
+text-justify: inter-word;
+line-height: 200%;
+text-indent :2em;
+display:inline-block;
+width:70%;
+letter-spacing: 3px;
+}
+
+#about h6{
+text-align: center;
+letter-spacing: 3px;
+}
+
+#service{
+width:100%;
+margin-top:45px;
+}
+#service h1{
+color: #87CEEB;
+font-family: 'Rouge Script', cursive;
+font-size: 70px;
+font-weight: normal;
+line-height: 48px;
+margin: 0 0 50px;
+text-align: center;
+text-shadow: 1px 1px 2px #00BFFF;
+}
+
+#service i{
+color:#00bfd5;
+}
+#service .container .row div h5{
+margin-top:7px;
+margin-left:25px;
+letter-spacing: 3px;
+}
+#service .container .row div p {
+letter-spacing: 3px;
+text-align: justify;
+max-width: 275px
+}
+#contact{
+width:97%;
+}
+#contact h1 {
+color: #87CEEB;
+font-family: 'Rouge Script', cursive;
+font-size: 70px;
+font-weight: normal;
+line-height: 48px;
+margin: 0 0 50px;
+text-align: center;
+text-shadow: 1px 1px 2px #00BFFF;
+}
+#contact i{
+color: #00bfd5;
+}
+#contact-form{
+margin-left:25px;
+}
+#team h1 {
+color: #87CEEB;
+font-family: 'Rouge Script', cursive;
+font-size: 70px;
+font-weight: normal;
+line-height: 48px;
+margin: 0 0 50px;
+text-align: center;
+text-shadow: 1px 1px 2px #00BFFF;
+}
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  padding-top: 100px;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background:red;
+  background-color: rgb(0,0,0); 
+  background-color: rgba(0,0,0,0.4); 
+}
+.modal-content {
+  background-color: #508bfc;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 90%;
+  height: 450px;
+  padding-top:45px;
+}
+.close {
+  color: red;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+  margin-top:-45px;
+  margin-right:15px;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+#data{
+display:none;
+}
+#pagecontent{
+height: auto; 
+}
+
+
+
+
+
+.ticket{
+width:350px;
+height:150px;
+border:2px solid gray;
+border-radius:15px;
+text-align:center;
+margin-top:20px;
+margin-left:35%;
+}
+.ticket table{
+width:100%;
+height:80%;
+text-align:center;
+margin-bottom:5px;
+}
+.ticket  i {
+color:gray;
+}
+.ticket table thead tr td button{
+width:65px;
+height:40px;
+border-radius:15px;
+padding-left:20px;
+padding-bottom:25px;
+}
+.ticket table thead tr td button i{
+color:white;
+}
+@media only screen and (max-width: 992px) {
+  #home {
+    width:100%;
+    margin-left:0;
+    border-radius: 0;
+	margin-top:-45px;
+  }
+#home #search form
+{
+display: block;
+margin:auto;
+margin-top:15px;
+}
+
+.select{
+margin-left:15%;
+}
+#home #search form div i 
+{
+transform: rotate(90deg);
+margin-top:25px;
+margin-bottom:25px;
+margin-left:35%;
+}
+#home #search form div input{
+	margin-top:10px;
+margin-left:25%;
+}
+
+#service .container .row
+{
+margin-left:7%;
+padding-left:29%;
+}
+}
