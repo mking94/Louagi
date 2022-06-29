@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Louagi</title>
+<link rel="icon" href="{{url_for('static',filename='images/logo.png')}}">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&amp;display=swap">
+<link rel="stylesheet" href="https://mdbootstrap.com/api/snippets/static/download/MDB5-Free_4.1.0/css/mdb.min.css">
+<link rel="stylesheet" href="{{url_for('static', filename='css/style.css')}}"">
+<link rel="stylesheet" href="{{url_for('static', filename='css/login.css')}}" >
+<link rel="stylesheet" href="{{url_for('static', filename='css/sweetalert.css')}}" >   
+<script src="{{url_for('static', filename='js/sweetalert-dev.js')}}" > </script>
+<script type="text/javascript" src="https://mdbootstrap.com/api/snippets/static/download/MDB5-Free_4.1.0/js/mdb.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.0.0-alpha.1/axios.min.js"></script>
+<link rel="stylesheet" href="https://mdbcdn.b-cdn.net/wp-content/themes/mdbootstrap4/docs-app/css/compiled-4.20.0.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.0/css/font-awesome.min.css">
+</head>
+<body>
+<nav class="navbar navbar-expand-lg fixed-top bg-light navbar-light">
+  <div class="container">
+    <a class="navbar-brand" href="#"><img id="logo" src="{{url_for('static', filename='images/logo.png')}}" draggable="false""></a>
+    <button class="navbar-toggler collapsed" type="button" data-mdb-toggle="collapse" data-mdb-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <i class="fas fa-bars"></i>
+    </button>
+    <div class="navbar-collapse collapse" id="navbarSupportedContent" style="">
+      <ul class="navbar-nav ms-auto align-items-center">
+        <li class="nav-item">
+          <a class="nav-link mx-2" href="#home"><i class="fa-solid fa-house"></i> Home</a>
+        </li>
+		<li class="nav-item">
+          <a class="nav-link mx-2" href="#about"><i class="fa-solid fa-address-card"></i> About</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link mx-2" href="#service"><i class="fa-solid fa-gears"></i> Services</a>
+        </li>
+        <li class="nav-item">
+         <a class="nav-link mx-2" href="#team"><i class="fa-solid fa-people-group"></i> Team</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link mx-2" href="#contact"><i class="fa-solid fa-message"></i> Contact</a>
+        </li>
+        <li class="nav-item ms-3">
+          <a class="btn btn-black btn-rounded" id="signin">Sign in</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav><br><br><br>
+
+<section id="home">
+<div id="search" >
+<h1> Explore Tunisia effortlessly by minibus </h1>
+<div class="container">
+<form class="row" method="" action="#">
+<div class="col-lg-3">
+<div class="select" >
+<select id="StatelistFrom"> 
+<option selected>Begining</option> 
+</select>
+</div>
+</div>
+<div class="col-lg-3">
+<i class="fa-solid fa-arrow-right-arrow-left fa-2xl" ></i>
+</div>
+<div class="col-lg-3">
+<div class="select">
+<select id="StatelistTo" disabled>
+<option name="des" selected>Destination</option>
+</select>
+</div>
+ </div>
+<div class="col-lg-3">
+<input type="button" class="btn btn-primary" id="find" value="SEARCH" disabled>
+</div> 
+</form>
+</div>
+</div>
+</section>
+<br>
+<div id="myModal" class="modal">
+
+<div class="modal-content" style="width:90%">
+<span class="close" id="close">&times;</span>
+
+<div id="loading">
+  <div class="lds-ring"><div></div><div></div><div></div><div></div></div>
+</div>
+
+
+<main style="margin-left:-8%">
+<div class="row"> 
+<div class="colm-form">
+<div class="form-container">
+<form id="form" onsubmit="return false;" onkeydown="return event.keyCode!=13">
+<input type="text" placeholder="Email address" id="mail" onkeydown="if(event.keyCode==13 && document.getElementById('type').style.display == 'none'){signin();}else if(event.keyCode==13 && document.getElementById('type').style.display == 'block'){register();}">
+<input type="password" placeholder="Password" id="pass" onkeydown="if(event.keyCode==13 && document.getElementById('type').style.display == 'none'){signin();}else if(event.keyCode==13 && document.getElementById('type').style.display == 'block'){register();}">
+<input type="password" placeholder="Repeat your password" id="confpass" onkeydown="if(event.keyCode==13){register();}">
+<fieldset name="type" id="type" style="display:block">
+<label class="form-check-label" for="type">Type: </label>
+<div class="form-check form-check-inline">
+  <input class="form-check-input" type="radio" name="type" id="user" value="user" />
+  <label class="form-check-label" for="user">User</label>
+</div>
+<div class="form-check form-check-inline">
+  <input class="form-check-input" type="radio" name="type" id="drive" value="driver" />
+  <label class="form-check-label" for="drive">Drive</label>
+</div>
+<div class="form-check form-check-inline">
+  <input class="form-check-input" type="radio" name="type" id="stmng" value="manager" />
+  <label class="form-check-label" for="stmng">Manager</label>
+</div>
+</fieldset>
+<input type="text" placeholder="Car Id or Station name" id="info" onkeydown="if(event.keyCode==13){register();}">
+<input type="button" class="btn-login" onclick="signin()" value="Login" id="btn-login" style="display:block">
+<a href="#" id="forget" style="display:block">Forgotten password?</a>
+<button class="btn-new" id="signup" onclick="register()">Create new Account</button>
+</form>
+</div>
+</div>
+</div>
+</main>
+
+</div>
+</div>
+
+
+
+<div id="pagecontent">
+<section id="about">
+<h1> About </h1>
+<p>
+Simply put, Louagi is the easiest way to find, compare and book buses tickets in Tunisia.
+Travelers can search routes, compare prices and book tickets online at <a href="index.html">louagi.tn</a>.
+</p>
+<h6>Have a destination in mind? It’s time to get going and let Louagi tickle your travel bone.</h6>
+
+</section>
+
+
+  
+<section id="service" >
+<h1>Service</h1>
+<div class="container">
+<div class="row">
+<div class="col-lg-4">
+<i class="fa-solid fa-ticket-simple fa-2xl"></i>
+<h5>Lowest Prices</h5>
+<p>We partner with the top bus carriers to bring you the best deals.</p>
+</div>
+<div class="col-lg-4">
+<i class="fa-solid fa-circle-check fa-2xl"></i>
+<h5>No Wanderu Fees</h5>
+<p>Without any extra fees, we make it easy to book your tickets.</p>
+</div>
+<div class="col-lg-4">
+<i class="fa-solid fa-heart fa-2xl"></i>
+<h5>Best Travel Options</h5>
+<p>We help you find & compare the best minibuses in one place.</p>
+</div>
+</div>
+</div>
+</section>
+<section class="team-section text-center my-5" id="team">
+
+    <!-- Section heading -->
+    <h1>Team</h1>
+
+    <!-- Grid row -->
+    <div class="row">
+
+        <!-- Grid column -->
+        <div class="col-lg-3 col-md-6 mb-lg-0 mb-5" style="margin:auto">
+            <div class="avatar mx-auto">
+                <img src="{{url_for('static', filename='images/mypic.jpg')}}" class="rounded-circle z-depth-1" alt="Sample avatar">
+            </div>
+            <h5 class="font-weight-bold mt-4 mb-3">Maher Ben Dada</h5>
+            <p class="text-uppercase blue-text">
+                <strong>FULL STACK DEVELOPER</strong>
+            </p>
+           <ul class="list-unstyled mb-0">
+                <!-- Facebook -->
+                <a class="p-2 fa-lg fb-ic">
+                    <i class="fa fa-facebook blue-text" href="https://facebook.com/dadi.maher"> </i>
+                </a>
+                <!-- Github -->
+                <a class="p-2 fa-lg ins-ic" href="https://github.com/mking94">
+                    <i class="fa fa-github blue-text"> </i>
+                </a>
+
+                <!-- Linkedin -->
+                <a class="p-2 fa-lg ins-ic" href="https://www.linkedin.com/in/maherbendada/">
+                    <i class="fa fa-linkedin blue-text"> </i>
+                </a>
+            </ul>
+        </div>
+
+</section>
+<section class="mb-4" id="contact" >
+<h1>Contact us</h1>
+    <p class="text-center w-responsive mx-auto mb-5">Do you have any questions? Please do not hesitate to contact us directly. Our team will come back to you within
+        a matter of hours to help you.</p>
+
+    <div class="row">
+        <div class="col-md-9 mb-md-0 mb-5">
+            <form id="contact-form" name="contact-form" action="#" method="POST">
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="md-form md-0">
+                            <input type="text" id="name" name="name" class="form-control">
+                            <label for="name" class="">Your name</label>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="md-form md-0">
+                            <input type="text" id="email" name="email" class="form-control">
+                            <label for="email" class="">Your email</label>
+                        </div>
+                    </div>
+                </div>
+              
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="md-form md-0">
+                            <input type="text" id="subject" name="subject" class="form-control">
+                            <label for="subject" class="">Subject</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-12">
+
+                        <div class="md-form">
+                            <textarea type="text" id="message" name="message" rows="2" class="form-control md-textarea"></textarea>
+                            <label for="message">Your message</label>
+                        </div>
+
+                    </div>
+                </div>
+				<input type="submit" class="btn btn-primary" value="Send"> 
+            </form>
+            <div class="status"></div>
+        </div>
+        <div class="col-lg-3 text-center">
+            <ul class="list-unstyled lg-0">
+                <li><i class="fas fa-map-marker-alt fa-2x"></i>
+                    <p>Lac 1, Tunis 1000, Tunisia</p>
+                </li>
+
+                <li><i class="fas fa-phone mt-4 fa-2x "></i>
+                    <p>+ 216 26 581 589</p>
+                </li>
+
+                <li><i class="fas fa-envelope mt-4 fa-2x"></i>
+                    <p>contact@louagi.tn</p>
+                </li>
+            </ul>
+        </div>
+    </div>
+</section>
+ </div>
+ <footer class="text-center text-white" style="background-color: #E0E0E0;">
+
+    <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+      © 2022 Copyright:
+      <a class="text-white" href="/index">louagi.tn</a>
+    </div>
+    
+  </footer>
+<script src="{{url_for('static', filename='js/script.js')}}"></script>
+ <script>
+var modal = document.getElementById("myModal");
+var btn = document.getElementById("signin");
+var span = document.getElementById("close");
+span.onclick = function() {
+  modal.style.display = "none";
+}
+
+btn.onclick = function() {
+  document.getElementById("btn-login").style.setProperty("display","block");
+  document.getElementById("type").style.setProperty("display","none");
+  document.getElementById("info").style.setProperty("display","none"); 
+  document.getElementById("forget").style.setProperty("display","block"); 
+  document.getElementById("confpass").style.setProperty("display","none"); 
+  modal.style.display = "block";
+}
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+
+document.getElementById("btn-buy").onclick = function(){
+document.getElementById("btn-login").style.setProperty("display","block");                                                                                              
+document.getElementById("type").style.setProperty("display","none");
+document.getElementById("info").style.setProperty("display","none");                                                                                                    
+document.getElementById("forget").style.setProperty("display","block"); 
+document.getElementById("confpass").style.setProperty("display","none");  
+modal.style.display = "block"; 
+}
+}
+</script>
+</body>
+</html>
+
