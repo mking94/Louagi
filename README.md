@@ -1,5 +1,5 @@
 <h2 align="center"> LOUAGI </h2>
-<img src="screenshots/Image.jpg" style="width:90%;height:252px;margin:auto" />
+<img src="screenshots/Image.jpg" style="width:90%;height:252px;margin-left:5%" />
 
 ## Description :speech_balloon:
 Louagi runs on a Python Flask app serving HTML using WSGI module of apache server 2.4.41
