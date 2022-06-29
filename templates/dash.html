@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html >
+<head>
+  <meta charset="UTF-8">
+  <title>Dashbord</title>
+  <link href='http://fonts.googleapis.com/css?family=Roboto:300' rel='stylesheet' type='text/css'>
+  <link rel="icon" href="{{url_for('static', filename='images/logo.png')}}">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+  <link rel="stylesheet" href="{{url_for('static', filename='css/styles.css')}}">
+  <link rel="stylesheet" href="{{url_for('static', filename='css/style.css')}}">
+  <link rel="stylesheet" href="{{url_for('static', filename='css/sweetalert.css')}}" >
+  <script src="{{url_for('static', filename='js/sweetalert-dev.js')}}" > </script>
+  <script src="{{url_for('static', filename='js/dash.js')}}"></script>
+  <link rel="stylesheet" href="https://mdbootstrap.com/api/snippets/static/download/MDB5-Free_4.1.0/css/mdb.min.css">      
+
+</head>
+
+<body>
+  <nav>
+  <ul id="menu">
+    <li onclick="dashboard()"><i class="fa-solid fa-chalkboard"></i> Dashboard</li>
+    <li onclick="checkticket()"><i class="fa-solid fa-ticket-simple"></i> Ticket</li>
+    <li onclick="rate()"><i class="fa-solid fa-clipboard-check"></i> Rate</li>
+    <li onclick=""><i class="fa-solid fa-bell"></i> Notification</li>
+    <li onclick="settings()"><i class="fa-solid fa-gear"></i> Settings</li>
+    <li><a href="/logout"style="color:white"> <i class="fa-solid fa-right-from-bracket"></i> Logout </a></li>
+  </ul>
+</nav>
+<div class="openNav">
+  <div class="icon"></div>
+</div>
+
+<div id ="wrp" class="wrapper" style="height:100vh"> 
+    
+<div id="content" style="margin-top:-55px;margin-bottom:55px;height:auto;width:100%;">
+<section id="home"style="min-width:95%;margin-left:3%">
+<div id="search" >
+<h1 style="font-size:35px"> Explore Tunisia effortlessly by minibus </h1>
+<div class="container">
+<form class="row" method="" action="#">
+<div class="col-lg-3">
+<div class="select" >
+<select id="StatelistFrom" onchange="changeoption(data[value])"> 
+<option selected>Begining</option> 
+</select>
+</div>
+</div>
+<div class="col-lg-3">
+<i class="fa-solid fa-arrow-right-arrow-left fa-2xl" ></i>
+</div>
+<div class="col-lg-3">
+<div class="select">
+<select id="StatelistTo" onchange="change()" disabled>
+<option name="des" selected>Destination</option>
+</select>
+</div>
+ </div>
+<div class="col-lg-3">
+<input type="button" class="btn btn-primary" id="find" value="SEARCH" onclick="search()" style="margin-top:7px" disabled>
+</div> 
+</form>
+</div>
+</div>
+</section>
+</div>
+<div id="pagecontent"> 
+
+</div>
+
+
+</div>  
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="{{url_for('static', filename='js/index.js')}}"></script>
+</body>
+</html>
