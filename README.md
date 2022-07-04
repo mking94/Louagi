@@ -2,7 +2,7 @@
 <img src="screenshots/Image.jpg" style="width:90%;height:272px;margin-left:7%;" />
 
 ## Description :speech_balloon:
-Louagi runs on a Python Flask app serving HTML using WSGI module of apache server 2.4.41
+Louagi is a plaform in wiche you can buy minibus ticket, Louagi runs on a Python Flask app serving HTML using WSGI module of apache server 2.4.41
 ### Back-End :
 <a href="https://github.com/mking94/Louagi/blob/main/index.py" >Index.py </a>: Entry point of the Flask app
 
