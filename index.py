@@ -8,7 +8,7 @@ app = Flask(__name__)
 
 usrIn = []
 variable = {}
-
+rate = {}
 
 @app.route('/fn/<param>', methods=["GET", "POST"])
 def fn(param):
@@ -24,7 +24,16 @@ def rate():
         collection.insert_one({"email": str(request.cookies.get("email")), "carId": str(
             request.form['carId']), "rate": str(request.form['rate'])})
         return "good"
-
+    
+@app.route('/getrate', methods=["GET", "POST"])
+def getrate():
+    if request.method == "GET":
+        dbcnx = pymongo.MongoClient('mongodb://localhost:27017')
+        db = dbcnx['louagi']
+        collection = db.get_collection("rate")
+        for item in ["good","average","bad"]:
+            rate[item] = collection.find({"carId": str(request.form['carId']),"rate":item}).count()       
+        return str({str(request.form['carId']):rate})
 
 @app.route('/buy', methods=["GET", "POST"])
 def buy():
