@@ -16,9 +16,19 @@ Louagi runs on a Python Flask app serving HTML using WSGI module of apache serve
 | ---------- | ------- |
 | Python     | 3.7.3   |
 | Flask      | 1.0.2   |
+| Apache     | 2.4.41  |
 
 ## Usage :running:
-Click <a href="https://ce1e4983d30b.48888c70.hbtn-cod.io/">here</a>
+<b> 1-Install apache2 </b>
+<p style="font-family:rockwell;margin-left:15px">$ apt install apache2</p>
+<b> 2-Install python3 </b>
+<p style="font-family:rockwell;margin-left:15px">$ apt install python3</p>
+<b> 3-Install module WSGI for apache2 </b>
+<p style="font-family:rockwell;margin-left:15px">$ apt install libapache2-mod-wsgi-py3</p>
+<b> 4-Install mongodb </b>
+<p style="font-family:rockwell;margin-left:15px">$ apt install mongodb</p>
+<b> 5-Install module pymongo for python3 </b>
+<p style="font-family:rockwell;margin-left:15px">$ pip install pymongo</p>
 
 ## Author :black_nib:
 * __Maher Ben Dada__ <[Maher](https://github.com/mking94)>
