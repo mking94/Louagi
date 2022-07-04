@@ -182,6 +182,14 @@ document.getElementById("info").style.setProperty("display","none");
 else document.getElementById("info").style.setProperty("display","block");
 });
 
+getrate = new XMLHttpRequest();
+getrate.onload = function() {
+rate = this.responseText;
+}
+getrate.open("GET", "/getrate", true);
+getrate.setRequestHeader("Content-type", "application/x-www-form-urlencoded;charset=UTF-8");
+getrate.send();
+
 
 document.getElementById("find").addEventListener('click',function ()
 {
@@ -194,7 +202,7 @@ st = station.filter(function(item){return item.journeyId === found[i]['_id']});
 tk = ticket.filter((item) => item.journeyId === found[i]['_id']);
 o = document.createElement('div');
 o.classList.add("ticket");
-o.innerHTML= '<table> <thead> <tr> <td  rowspan="3"><i class="fa-solid fa-van-shuttle fa-2xl"></i></td>  <td  colspan="2">'+ found[i]['Begining'] +' <i class="fa-solid fa-arrow-right-long fa-2xl"></i> '+ found[i]['Destination'] +' </td><td >'+ found[i]['Price']+'</td></tr> <tr> <td> '+st[0]["Begining"]+'</td><td> '+st[0]["Destination"]+'</td><td ><button class="btn btn-primary"  id="btn-buy"><i class="fa-solid fa-cart-shopping fa-xl"></i></button></td> </tr> <tr><td colspan="2">Car ID:<b>'+found[i]['CarId']+'</b></td><td>Number of clients: <b>'+tk.length+' /8</b></tr></thead></table>';
+o.innerHTML= '<table> <thead> <tr> <td  rowspan="3"><i class="fa-solid fa-van-shuttle fa-2xl"></i></td>  <td  colspan="2">'+ found[i]['Begining'] +' <i class="fa-solid fa-arrow-right-long fa-2xl"></i> '+ found[i]['Destination'] +' </td><td >'+ found[i]['Price']+'</td></tr> <tr> <td> '+st[0]["Begining"]+'</td><td> '+st[0]["Destination"]+'</td><td ><button class="btn btn-primary"  id="btn-buy"><i class="fa-solid fa-cart-shopping fa-xl"></i></button></td> </tr> <tr><td colspan="2">Car ID:<b>'+found[i]['CarId']+'</b></td><td>Number of clients: <b>'+tk.length+' /8</b></tr></thead></table><i class="fa-solid fa-face-smile"></i>'+rate[found[i]['CarId']]['good']+'<i class="fa-solid fa-face-disappointed"></i>'+rate[found[i]['CarId']]['bad'];
 s.appendChild(o);
 }
 });
