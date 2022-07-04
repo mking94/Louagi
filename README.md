@@ -29,6 +29,7 @@ Louagi runs on a Python Flask app serving HTML using WSGI module of apache serve
 <p style="font-family:rockwell;margin-left:15px">$ apt install mongodb</p>
 <b> 5-Install module pymongo for python3 </b>
 <p style="font-family:rockwell;margin-left:15px">$ pip install pymongo</p>
+<b> 5-Create data dtabase louagi </b>
 
 ## Author :black_nib:
 * __Maher Ben Dada__ <[Maher](https://github.com/mking94)>
