@@ -15,6 +15,7 @@ def fn(param):
     if param == 'var':
         return (str(variable))
 
+""" method that rate an driver using its carId """
 @app.route('/rate', methods=["GET", "POST"])
 def rate():
     if request.method == "POST":
@@ -24,7 +25,8 @@ def rate():
         collection.insert_one({"email": str(request.cookies.get("email")), "carId": str(
             request.form['carId']), "rate": str(request.form['rate'])})
         return "good"
-    
+
+""" method that return the rate of a driver using its carId """
 @app.route('/getrate', methods=["GET", "POST"])
 def getrate():
     if request.method == "GET":
@@ -35,6 +37,7 @@ def getrate():
             rate[item] = collection.find({"carId": str(request.form['carId']),"rate":item}).count()       
         return str({str(request.form['carId']):rate})
 
+""" method to buy a ticket """
 @app.route('/buy', methods=["GET", "POST"])
 def buy():
     if request.method == "POST":
@@ -50,7 +53,7 @@ def buy():
                         request.form['pl'])})
         return (str(tikt.inserted_id))
 
-
+""" index """
 @app.route('/')
 def index():
     dbcnx = pymongo.MongoClient('mongodb://localhost:27017')
